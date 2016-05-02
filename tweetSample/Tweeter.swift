@@ -13,20 +13,22 @@ import Social
 
 class Tweeter {
     
-    typealias TweeterGetAccountComplition = (accounts: [ACAccount], errorMessage: String?) -> Void
     typealias TweeterTweetComplition = (data: NSData?, res: NSHTTPURLResponse?, err: NSError?) -> Void
     
-    func getAccounts(completion: TweeterGetAccountComplition) {
+    func getAccounts(
+        onError onError: (errorMessage: String)->Void,
+        onSuccess: [ACAccount] -> Void
+    ) {
         let accountStore = ACAccountStore()
         let accountType = accountStore.accountTypeWithAccountTypeIdentifier(ACAccountTypeIdentifierTwitter)
         accountStore.requestAccessToAccountsWithType(accountType, options: nil) { granted, err in
             guard granted else {
-                completion(accounts: [], errorMessage: "Permission denied to acceess to Twitter accounts.")
+                onError(errorMessage: "Permission denied to acceess to Twitter accounts.")
                 return
             }
             
             let accounts = accountStore.accountsWithAccountType(accountType) as! [ACAccount]
-            completion(accounts: accounts, errorMessage: nil)
+            onSuccess(accounts)
         }
     }
     

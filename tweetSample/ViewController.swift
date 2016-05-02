@@ -15,26 +15,27 @@ class ViewController: NSViewController {
         
         let tweeter = Tweeter()
 
-        tweeter.getAccounts { accounts, errMsg in
-            if let errMsg = errMsg {
+        tweeter.getAccounts(
+            onError: { errMsg in
                 self.errorAlert(errMsg)
-                return
-            }
-            guard accounts.count > 0 else {
-                self.errorAlert("Number of Twitter accounts is 0.")
-                return
-            }
-            
-            print(accounts)
-            
-            tweeter.tweet("test2", account: accounts[2]) { [weak self] data, res, err in
-                if let err = err {
-                    self?.errorAlert(err.description)
+            },
+            onSuccess:  { accounts in
+                guard accounts.count > 0 else {
+                    self.errorAlert("Number of Twitter accounts is 0.")
                     return
                 }
-                print("tweet suceeded 👍")
+                
+                print(accounts)
+                
+                tweeter.tweet("test2", account: accounts[2]) { [weak self] data, res, err in
+                    if let err = err {
+                        self?.errorAlert(err.description)
+                        return
+                    }
+                    print("tweet suceeded 👍")
+                }
             }
-        }
+        )
     }
     
     func errorAlert(msg: String) {
