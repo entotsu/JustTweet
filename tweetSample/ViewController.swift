@@ -12,16 +12,34 @@ class ViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tweeter = Tweeter()
 
-        // Do any additional setup after loading the view.
-    }
-
-    override var representedObject: AnyObject? {
-        didSet {
-        // Update the view, if already loaded.
+        tweeter.getAccounts { accounts, errMsg in
+            if let errMsg = errMsg {
+                self.errorAlert(errMsg)
+                return
+            }
+            guard accounts.count > 0 else {
+                self.errorAlert("Number of Twitter accounts is 0.")
+                return
+            }
+            
+            print(accounts)
+            
+            tweeter.tweet("test2", account: accounts[2]) { [weak self] data, res, err in
+                if let err = err {
+                    self?.errorAlert(err.description)
+                    return
+                }
+                print("tweet suceeded 👍")
+            }
         }
     }
-
-
+    
+    func errorAlert(msg: String) {
+        let alert = NSAlert()
+        alert.messageText = msg
+        alert.runModal()
+    }
 }
-
