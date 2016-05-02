@@ -10,37 +10,65 @@ import Cocoa
 
 class ViewController: NSViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let tweeter = Tweeter()
-
-        tweeter.getAccounts(
-            onError: { errMsg in
-                self.errorAlert(errMsg)
-            },
-            onSuccess:  { accounts in
-                guard accounts.count > 0 else {
-                    self.errorAlert("Number of Twitter accounts is 0.")
-                    return
-                }
-                
-                print(accounts)
-                
-                tweeter.tweet("test2", account: accounts[2]) { [weak self] data, res, err in
-                    if let err = err {
-                        self?.errorAlert(err.description)
-                        return
-                    }
-                    print("tweet suceeded 👍")
-                }
-            }
-        )
+    var accountsView: AccountSwitchView?
+    var textField: NSTextField?
+    var appDelegate: AppDelegate {
+        return NSApplication.sharedApplication().delegate as! AppDelegate
     }
     
-    func errorAlert(msg: String) {
-        let alert = NSAlert()
-        alert.messageText = msg
-        alert.runModal()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setup()
+    }
+    
+    func post(didSuccess: Closure) {
+        guard let
+            textField = self.textField,
+            accountsView = self.accountsView
+        else { return }
+        let text = textField.stringValue
+        guard text.characters.count <= 140 else {
+            errorAlert("Tweet text length must be less than 140.")
+            return
+        }
+        Tweeter.tweet(text, account: accountsView.currentAccount) { result in
+            if let err = result.err {
+                errorAlert("Failed To Tweet. \(err.description)")
+                return
+            }
+            textField.stringValue = ""
+            didSuccess()
+        }
+    }
+    
+    func setup() {
+        setupAccountsView {
+            self.textField = self.addTextField(startY: self.accountsView!.frame.height)
+            self.appDelegate.didSendPostAction = { [weak self] in
+                self?.post {
+                    print("finish")
+                }
+            }
+        }
+    }
+    
+    func setupAccountsView(completion: Closure? = nil) {
+        Tweeter.getAccounts(
+        onError: { errMsg in
+            errorAlert(errMsg)
+        },
+        onSuccess:  { accounts in
+            guard accounts.count > 0 else {
+                errorAlert("Number of Twitter accounts is 0.")
+                return
+            }
+            let accountsView = self.addAccountView(accounts)
+            self.accountsView = accountsView
+            // set keyboard shortcut
+            self.appDelegate.didSendChangeAccountAction = { [weak self] in
+                self?.accountsView!.toggleAccount()
+            }
+            completion?()
+        })
     }
 }

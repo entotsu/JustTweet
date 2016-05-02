@@ -15,7 +15,7 @@ class Tweeter {
     
     typealias TweeterTweetComplition = (data: NSData?, res: NSHTTPURLResponse?, err: NSError?) -> Void
     
-    func getAccounts(
+    class func getAccounts(
         onError onError: (errorMessage: String)->Void,
         onSuccess: [ACAccount] -> Void
     ) {
@@ -23,21 +23,27 @@ class Tweeter {
         let accountType = accountStore.accountTypeWithAccountTypeIdentifier(ACAccountTypeIdentifierTwitter)
         accountStore.requestAccessToAccountsWithType(accountType, options: nil) { granted, err in
             guard granted else {
-                onError(errorMessage: "Permission denied to acceess to Twitter accounts.")
+                gcd.sync(.Main) {
+                    onError(errorMessage: "Permission denied to acceess to Twitter accounts.")
+                }
                 return
             }
             
             let accounts = accountStore.accountsWithAccountType(accountType) as! [ACAccount]
-            onSuccess(accounts)
+            gcd.sync(.Main) {
+                onSuccess(accounts)
+            }
         }
     }
     
-    func tweet(text: String, account: ACAccount, completion: TweeterTweetComplition) {
+    class func tweet(text: String, account: ACAccount, completion: TweeterTweetComplition) {
         let apiUrlAddress = "https://api.twitter.com/1.1/statuses/update.json"
         guard let apiUrl = NSURL(string: apiUrlAddress) else {
             let errMessage = "API URL address is invalid.  -> \(apiUrlAddress)"
             let err = NSError(domain: "", code: 0, userInfo: ["message": errMessage])
-            completion(data: nil, res: nil, err: err)
+            gcd.sync(.Main) {
+                completion(data: nil, res: nil, err: err)
+            }
             return
         }
         let request = SLRequest(
@@ -49,9 +55,40 @@ class Tweeter {
         request.account = account
         request.performRequestWithHandler { data, res, err in
             if let err = err {
-                completion(data: data, res: res, err: err)
+                gcd.sync(.Main) {
+                    completion(data: data, res: res, err: err)
+                }
             }
-            completion(data: data, res: res, err: nil)
+            gcd.sync(.Main) {
+                completion(data: data, res: res, err: nil)
+            }
         }
     }
 }
+
+// Example
+//
+//func tweet() {
+//    Tweeter.getAccounts(
+//        onError: { errMsg in
+//            self.errorAlert(errMsg)
+//        },
+//        onSuccess:  { accounts in
+//            guard accounts.count > 0 else {
+//                self.errorAlert("Number of Twitter accounts is 0.")
+//                return
+//            }
+//            
+//            print(accounts)
+//            
+//            Tweeter.tweet("test2", account: accounts[2]) { [weak self] data, res, err in
+//                if let err = err {
+//                    self?.errorAlert(err.description)
+//                    return
+//                }
+//                print("tweet suceeded")
+//            }
+//        }
+//    )
+//}
+

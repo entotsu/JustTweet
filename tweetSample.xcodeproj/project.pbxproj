@@ -7,14 +7,51 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		402E8CD61CD79D3C00A8C603 /* MASShortcut.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 402E8CD41CD79D3C00A8C603 /* MASShortcut.framework.dSYM */; };
+		402E8CD71CD79D5A00A8C603 /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 402E8CD31CD79D3C00A8C603 /* MASShortcut.framework */; };
+		402E8CD81CD79D5A00A8C603 /* MASShortcut.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 402E8CD31CD79D3C00A8C603 /* MASShortcut.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		402E8CD91CD79D6200A8C603 /* MASShortcut.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 402E8CD41CD79D3C00A8C603 /* MASShortcut.framework.dSYM */; };
+		402E8CDB1CD7BF7B00A8C603 /* util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402E8CDA1CD7BF7B00A8C603 /* util.swift */; };
+		402E8CDD1CD7BFEF00A8C603 /* ViewController+Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402E8CDC1CD7BFEF00A8C603 /* ViewController+Design.swift */; };
 		4069D2E81CD7780000DE519E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4069D2E71CD7780000DE519E /* AppDelegate.swift */; };
 		4069D2EA1CD7780000DE519E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4069D2E91CD7780000DE519E /* ViewController.swift */; };
 		4069D2EC1CD7780000DE519E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4069D2EB1CD7780000DE519E /* Assets.xcassets */; };
 		4069D2EF1CD7780000DE519E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4069D2ED1CD7780000DE519E /* Main.storyboard */; };
 		4069D2F71CD781CF00DE519E /* Tweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4069D2F61CD781CF00DE519E /* Tweeter.swift */; };
+		4069D3181CD78CB400DE519E /* NoBarWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4069D3171CD78CB400DE519E /* NoBarWindow.swift */; };
+		4069D31A1CD7904B00DE519E /* AccountSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4069D3191CD7904B00DE519E /* AccountSwitchView.swift */; };
+		4069D31C1CD7982400DE519E /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4069D31B1CD7982400DE519E /* GCD.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4069D3231CD79A0100DE519E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				402E8CD81CD79D5A00A8C603 /* MASShortcut.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4069D3241CD79B0700DE519E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				402E8CD91CD79D6200A8C603 /* MASShortcut.framework.dSYM in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		402E8CD31CD79D3C00A8C603 /* MASShortcut.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MASShortcut.framework; sourceTree = "<group>"; };
+		402E8CD41CD79D3C00A8C603 /* MASShortcut.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = MASShortcut.framework.dSYM; sourceTree = "<group>"; };
+		402E8CDA1CD7BF7B00A8C603 /* util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = util.swift; sourceTree = "<group>"; };
+		402E8CDC1CD7BFEF00A8C603 /* ViewController+Design.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Design.swift"; sourceTree = "<group>"; };
 		4069D2E41CD7780000DE519E /* tweetSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tweetSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4069D2E71CD7780000DE519E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4069D2E91CD7780000DE519E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +59,9 @@
 		4069D2EE1CD7780000DE519E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4069D2F01CD7780000DE519E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4069D2F61CD781CF00DE519E /* Tweeter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweeter.swift; sourceTree = "<group>"; };
+		4069D3171CD78CB400DE519E /* NoBarWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoBarWindow.swift; sourceTree = "<group>"; };
+		4069D3191CD7904B00DE519E /* AccountSwitchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSwitchView.swift; sourceTree = "<group>"; };
+		4069D31B1CD7982400DE519E /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				402E8CD71CD79D5A00A8C603 /* MASShortcut.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,9 +95,16 @@
 		4069D2E61CD7780000DE519E /* tweetSample */ = {
 			isa = PBXGroup;
 			children = (
+				402E8CD31CD79D3C00A8C603 /* MASShortcut.framework */,
+				402E8CD41CD79D3C00A8C603 /* MASShortcut.framework.dSYM */,
 				4069D2E71CD7780000DE519E /* AppDelegate.swift */,
+				4069D3171CD78CB400DE519E /* NoBarWindow.swift */,
 				4069D2F61CD781CF00DE519E /* Tweeter.swift */,
+				4069D31B1CD7982400DE519E /* GCD.swift */,
+				402E8CDA1CD7BF7B00A8C603 /* util.swift */,
 				4069D2E91CD7780000DE519E /* ViewController.swift */,
+				402E8CDC1CD7BFEF00A8C603 /* ViewController+Design.swift */,
+				4069D3191CD7904B00DE519E /* AccountSwitchView.swift */,
 				4069D2EB1CD7780000DE519E /* Assets.xcassets */,
 				4069D2ED1CD7780000DE519E /* Main.storyboard */,
 				4069D2F01CD7780000DE519E /* Info.plist */,
@@ -74,6 +122,8 @@
 				4069D2E01CD7780000DE519E /* Sources */,
 				4069D2E11CD7780000DE519E /* Frameworks */,
 				4069D2E21CD7780000DE519E /* Resources */,
+				4069D3231CD79A0100DE519E /* Embed Frameworks */,
+				4069D3241CD79B0700DE519E /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -124,6 +174,7 @@
 			files = (
 				4069D2EC1CD7780000DE519E /* Assets.xcassets in Resources */,
 				4069D2EF1CD7780000DE519E /* Main.storyboard in Resources */,
+				402E8CD61CD79D3C00A8C603 /* MASShortcut.framework.dSYM in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,8 +185,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				402E8CDB1CD7BF7B00A8C603 /* util.swift in Sources */,
+				4069D31C1CD7982400DE519E /* GCD.swift in Sources */,
+				402E8CDD1CD7BFEF00A8C603 /* ViewController+Design.swift in Sources */,
 				4069D2F71CD781CF00DE519E /* Tweeter.swift in Sources */,
 				4069D2EA1CD7780000DE519E /* ViewController.swift in Sources */,
+				4069D31A1CD7904B00DE519E /* AccountSwitchView.swift in Sources */,
+				4069D3181CD78CB400DE519E /* NoBarWindow.swift in Sources */,
 				4069D2E81CD7780000DE519E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,6 +297,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/tweetSample",
+				);
 				INFOPLIST_FILE = tweetSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.taku-oka.tweetSample";
@@ -253,6 +313,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/tweetSample",
+				);
 				INFOPLIST_FILE = tweetSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.taku-oka.tweetSample";
@@ -279,6 +343,7 @@
 				4069D2F51CD7780000DE519E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

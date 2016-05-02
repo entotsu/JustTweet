@@ -11,8 +11,16 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-
-
+    var didSendChangeAccountAction: ()->Void = {}
+    var didSendPostAction: ()->Void = {}
+    @IBAction func changeToNextAccountAction(sender: AnyObject) {
+        didSendChangeAccountAction()
+    }
+    @IBAction func postAction(sender: AnyObject) {
+        didSendPostAction()
+    }
+    
+    
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
     }
