@@ -7,10 +7,14 @@
 //
 
 import Cocoa
+import Accounts
+import SnapKit
+
+private let CHAR_COUNT_LIMIT = 140
 
 class ViewController: NSViewController {
 
-    var accountsView: AccountSwitchView?
+    var accountSwitcher: AccountSwicherView?
     var textField: NSTextField?
     var counter: Label?
     
@@ -20,21 +24,60 @@ class ViewController: NSViewController {
     }
     
     private func setup() {
-
-        setupAccountsView { accountsView in
-            self.accountsView = accountsView
-            
-            self.textField = self.addTextField()
+        getAccounts { accounts in
+            guard let accounts = accounts else { return }
+            // switcher
+            self.accountSwitcher = AccountSwicherView()
+            self.accountSwitcher!.accounts = accounts
+            // text field
+            self.textField = NSTextField()
             self.textField!.delegate = self
-
-            self.counter = self.addCharCounter()
+            // counter
+            self.counter = Label()
             self.counter!.stringValue = "0"
-
+            // actions
+            self.appDelegate.didSendChangeAccountAction = { [weak self] in
+                self?.accountSwitcher?.changeToPrevAccount()
+            }
             self.appDelegate.didSendPostAction = { [weak self] in
                 self?.post {
                     print("succeed to tweet!")
                 }
             }
+            // design
+            self.setupDesign()
+        }
+    }
+    
+    func setupDesign() {
+        guard let
+            accountSwitcher = accountSwitcher,
+            textField = textField,
+            counter = counter
+        else {
+            fatalError()
+        }
+        // switcher
+        let switcherHeight: CGFloat = 60
+        accountSwitcher.frame = CGRect(x: 0, y: self.view.frame.height - switcherHeight, width: self.view.frame.width, height: switcherHeight)
+        self.view.addSubview(accountSwitcher)
+        accountSwitcher.layer?.borderColor = NSColor.redColor().CGColor
+        accountSwitcher.layer?.borderWidth = 2
+        // text field
+        textField.frame = CGRect(
+            x: 0,
+            y: 0,
+            width: self.view.frame.width,
+            height: self.view.frame.height - accountSwitcher.frame.height
+        )
+        self.view.addSubview(textField)
+        textField.layer?.borderColor = NSColor.blueColor().CGColor
+        textField.layer?.borderWidth = 4
+        // counter
+        view.addSubview(counter)
+        let counterMargin: CGFloat = 8
+        counter.snp_makeConstraints { make in
+            make.bottom.right.equalTo(self.textField!).offset(-counterMargin)
         }
     }
 }
@@ -48,13 +91,12 @@ extension ViewController: NSTextFieldDelegate {
         else {
             return
         }
-        counter.stringValue = "\(charCount)"
+        counter.stringValue = "\(CHAR_COUNT_LIMIT - charCount)"
     }
     
     override func controlTextDidChange(obj: NSNotification) {
         updateCounter()
     }
-    
     // return key is newline
     func control(control: NSControl, textView: NSTextView, doCommandBySelector commandSelector: Selector) -> Bool {
         if commandSelector == #selector(NSResponder.insertNewline(_:)) {
@@ -77,40 +119,39 @@ extension ViewController {
     private func post(didSuccess: Closure) {
         guard let
             textField = self.textField,
-            accountsView = self.accountsView
+            currentAccount = self.accountSwitcher?.currentAccount
         else { return }
         let text = textField.stringValue
-        guard text.characters.count <= 140 else {
+        guard text.characters.count <= CHAR_COUNT_LIMIT else {
             errorAlert("Tweet text length must be less than 140.")
             return
         }
-        Tweeter.tweet(text, account: accountsView.currentAccount) { result in
+        textField.stringValue = ""
+        self.updateCounter()
+        Tweeter.tweet(text, account: currentAccount) { result in
             if let err = result.err {
+                textField.stringValue = text
                 errorAlert("Failed To Tweet. \(err.description)")
                 return
             }
-            textField.stringValue = ""
-            self.updateCounter()
             didSuccess()
         }
     }
 
-    private func setupAccountsView(completion: (AccountSwitchView->Void)? = nil) {
+    private func getAccounts(completion: ([ACAccount]?->Void)) {
         Tweeter.getAccounts(
             onError: { errMsg in
                 errorAlert(errMsg)
+                completion(nil)
+                return
             },
             onSuccess:  { accounts in
                 guard accounts.count > 0 else {
                     errorAlert("Number of Twitter accounts is 0.")
+                    completion(nil)
                     return
                 }
-                let accountsView = self.addAccountView(accounts)
-                // set keyboard shortcut
-                self.appDelegate.didSendChangeAccountAction = { [weak self] in
-                    self?.accountsView!.toggleAccount()
-                }
-                completion?(accountsView)
+                completion(accounts)
             }
         )
     }
