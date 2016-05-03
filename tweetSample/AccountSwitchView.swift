@@ -43,23 +43,3 @@ class AccountSwitchView: NSView {
         currentAccount = accounts[currentIndex]
     }
 }
-
-class Label: NSTextField {
-    
-    init() {
-        super.init(frame: CGRectZero)
-        commonInit()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        commonInit()
-    }
-    
-    func commonInit() {
-        self.drawsBackground = false
-        self.bordered = false
-        self.editable = false
-        self.selectable = false
-    }
-}

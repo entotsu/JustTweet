@@ -8,6 +8,7 @@
 
 import Cocoa
 import Accounts
+import SnapKit
 
 extension ViewController {
 
@@ -26,13 +27,13 @@ extension ViewController {
 
     // ↓
     
-    func addTextField(startY startY: CGFloat) -> NSTextField {
+    func addTextField() -> NSTextField {
         let textField = NSTextField()
         textField.frame = CGRect(
             x: 0,
             y: 0,
             width: self.view.frame.width,
-            height: self.view.frame.height - startY
+            height: self.view.frame.height - self.accountsView!.frame.height
         )
         self.view.addSubview(textField)
         
@@ -42,4 +43,13 @@ extension ViewController {
         return textField
     }
 
+    func addCharCounter() -> Label {
+        let counter = Label()
+        view.addSubview(counter)
+        let margin: CGFloat = 8
+        counter.snp_makeConstraints { make in
+            make.bottom.right.equalTo(self.textField!).offset(-margin)
+        }
+        return counter
+    }
 }

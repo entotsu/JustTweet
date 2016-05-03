@@ -12,16 +12,56 @@ class ViewController: NSViewController {
 
     var accountsView: AccountSwitchView?
     var textField: NSTextField?
-    var appDelegate: AppDelegate {
-        return NSApplication.sharedApplication().delegate as! AppDelegate
-    }
+    var counter: Label?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
     }
     
-    func post(didSuccess: Closure) {
+    private func setup() {
+
+        setupAccountsView { accountsView in
+            self.accountsView = accountsView
+            
+            self.textField = self.addTextField()
+            self.textField!.delegate = self
+
+            self.counter = self.addCharCounter()
+            self.counter!.stringValue = "0"
+
+            self.appDelegate.didSendPostAction = { [weak self] in
+                self?.post {
+                    print("succeed to tweet!")
+                }
+            }
+        }
+    }
+}
+
+extension ViewController: NSTextFieldDelegate {
+
+    func updateCounter() {
+        guard let
+            counter = self.counter,
+            charCount = self.textField?.stringValue.characters.count
+        else {
+            return
+        }
+        counter.stringValue = "\(charCount)"
+    }
+    
+    override func controlTextDidChange(obj: NSNotification) {
+        updateCounter()
+    }
+}
+
+
+// MARK: - main methods
+
+extension ViewController {
+
+    private func post(didSuccess: Closure) {
         guard let
             textField = self.textField,
             accountsView = self.accountsView
@@ -37,38 +77,37 @@ class ViewController: NSViewController {
                 return
             }
             textField.stringValue = ""
+            self.updateCounter()
             didSuccess()
         }
     }
-    
-    func setup() {
-        setupAccountsView {
-            self.textField = self.addTextField(startY: self.accountsView!.frame.height)
-            self.appDelegate.didSendPostAction = { [weak self] in
-                self?.post {
-                    print("finish")
-                }
-            }
-        }
-    }
-    
-    func setupAccountsView(completion: Closure? = nil) {
+
+    private func setupAccountsView(completion: (AccountSwitchView->Void)? = nil) {
         Tweeter.getAccounts(
-        onError: { errMsg in
-            errorAlert(errMsg)
-        },
-        onSuccess:  { accounts in
-            guard accounts.count > 0 else {
-                errorAlert("Number of Twitter accounts is 0.")
-                return
+            onError: { errMsg in
+                errorAlert(errMsg)
+            },
+            onSuccess:  { accounts in
+                guard accounts.count > 0 else {
+                    errorAlert("Number of Twitter accounts is 0.")
+                    return
+                }
+                let accountsView = self.addAccountView(accounts)
+                // set keyboard shortcut
+                self.appDelegate.didSendChangeAccountAction = { [weak self] in
+                    self?.accountsView!.toggleAccount()
+                }
+                completion?(accountsView)
             }
-            let accountsView = self.addAccountView(accounts)
-            self.accountsView = accountsView
-            // set keyboard shortcut
-            self.appDelegate.didSendChangeAccountAction = { [weak self] in
-                self?.accountsView!.toggleAccount()
-            }
-            completion?()
-        })
+        )
+    }
+}
+
+
+// MARK: - util methods
+
+extension ViewController {
+    private var appDelegate: AppDelegate {
+        return NSApplication.sharedApplication().delegate as! AppDelegate
     }
 }
