@@ -54,6 +54,19 @@ extension ViewController: NSTextFieldDelegate {
     override func controlTextDidChange(obj: NSNotification) {
         updateCounter()
     }
+    
+    // return key is newline
+    func control(control: NSControl, textView: NSTextView, doCommandBySelector commandSelector: Selector) -> Bool {
+        if commandSelector == #selector(NSResponder.insertNewline(_:)) {
+            textView.insertNewlineIgnoringFieldEditor(self)
+            return true
+        }
+        else if commandSelector == #selector(NSResponder.insertTab(_:)) {
+            textView.insertTabIgnoringFieldEditor(self)
+            return true
+        }
+        return false
+    }
 }
 
 
