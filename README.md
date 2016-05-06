@@ -1,6 +1,6 @@
 # Tweet App for Mac
 
-![screenshot](https://raw.githubusercontent.com/entotsu/Tweet-Sample-OSX/feature/transparancy/screenshot.png "screenshot")
+<img src="https://raw.githubusercontent.com/entotsu/Tweet-Sample-OSX/feature/transparancy/screenshot.png" alt="screenshot" width="430">
 
 ## Features
 * can open / close quickly form global shortcut
