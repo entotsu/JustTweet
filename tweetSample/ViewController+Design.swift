@@ -33,16 +33,14 @@ extension ViewController {
             let minimumWidth = max(accountSwitcher.minimumWidth, self.minimumWidth)
             make.width.equalTo(minimumWidth)
         }
-        accountSwitcher.layer?.borderColor = NSColor.redColor().colorWithAlphaComponent(0.1).CGColor
-        accountSwitcher.layer?.borderWidth = 1
 
         // separator
         let separator = NSView()
-        separator.layer?.backgroundColor = NSColor.blackColor().colorWithAlphaComponent(0.1).CGColor
         view.addSubview(separator)
+        separator.layer?.backgroundColor = NSColor.blackColor().colorWithAlphaComponent(0.1).CGColor
         separator.snp_makeConstraints { make in
             make.top.equalTo(accountSwitcher.snp_bottom)
-            make.height.equalTo(0.5)
+            make.height.equalTo(1)
             make.left.right.equalTo(view)
         }
 
