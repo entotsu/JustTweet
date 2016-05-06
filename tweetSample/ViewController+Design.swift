@@ -40,7 +40,7 @@ extension ViewController {
         separator.layer?.backgroundColor = NSColor.blackColor().colorWithAlphaComponent(0.1).CGColor
         separator.snp_makeConstraints { make in
             make.top.equalTo(accountSwitcher.snp_bottom)
-            make.height.equalTo(1)
+            make.height.equalTo(0.5)
             make.left.right.equalTo(view)
         }
 
