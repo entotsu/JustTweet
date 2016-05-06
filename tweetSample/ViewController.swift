@@ -42,10 +42,10 @@ class ViewController: NSViewController {
             self.counter = Label()
             self.counter!.stringValue = "\(CHAR_COUNT_LIMIT)"
             // actions
-            self.appDelegate.didSendChangeAccountAction = { [weak self] in
+            self.appDelegate.changeAccountAction = { [weak self] in
                 self?.accountSwitcher?.changeToPrevAccount()
             }
-            self.appDelegate.didSendPostAction = { [weak self] in
+            self.appDelegate.postAction = { [weak self] in
                 self?.post {
                     print("succeed to tweet!")
                     ToggleApp.hide()

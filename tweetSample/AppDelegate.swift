@@ -11,20 +11,8 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    var didSendChangeAccountAction: ()->Void = {}
-    var didSendPostAction: ()->Void = {}
-
-    @IBAction func changeToNextAccountAction(sender: AnyObject) {
-        didSendChangeAccountAction()
-    }
-
-    @IBAction func postAction(sender: AnyObject) {
-        didSendPostAction()
-    }
-
-    @IBAction func openGlobalShortcutSetting(sender: AnyObject) {
-        GlobalShortcut.openSettingAlert()
-    }
+    var changeAccountAction: ()->Void = {}
+    var postAction: ()->Void = {}
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         GlobalShortcut.openSettingAlertIfNeed()
@@ -35,6 +23,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
+    }
+
+    @IBAction func changeToNextAccountAction(sender: AnyObject) {
+        changeAccountAction()
+    }
+    
+    @IBAction func postAction(sender: AnyObject) {
+        postAction()
+    }
+    
+    @IBAction func openGlobalShortcutSetting(sender: AnyObject) {
+        GlobalShortcut.openSettingAlert()
     }
 }
 
