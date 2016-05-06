@@ -1,5 +1,7 @@
 # Tweet App for Mac
 
+![screenshot](https://raw.githubusercontent.com/entotsu/Tweet-Sample-OSX/feature/transparancy/screenshot.png "screenshot")
+
 ## Features
 * can open / close quickly form global shortcut
 * can quickly change account
