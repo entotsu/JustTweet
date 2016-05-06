@@ -71,6 +71,7 @@ class ViewController: NSViewController {
         view.layer?.backgroundColor = NSColor.whiteColor().CGColor
         // switcher
         accountSwitcher.margin = 8
+        accountSwitcher.inactiveAlpha = 0.4
         view.addSubview(accountSwitcher)
         accountSwitcher.snp_makeConstraints { make in
             make.top.left.right.equalTo(view)
