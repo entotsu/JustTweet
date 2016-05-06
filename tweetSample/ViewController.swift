@@ -17,6 +17,7 @@ class ViewController: NSViewController {
     var accountSwitcher: AccountSwicherView?
     var textField: AutoGrowingTextField?
     var counter: Label?
+    let minimumWidth: CGFloat = 250
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +63,8 @@ class ViewController: NSViewController {
         accountSwitcher.snp_makeConstraints { make in
             make.top.left.right.equalTo(self.view)
             make.height.equalTo(60)
+            let minimumWidth = max(accountSwitcher.minimumWidth, self.minimumWidth)
+            make.width.equalTo(minimumWidth)
         }
         accountSwitcher.layer?.borderColor = NSColor.redColor().CGColor
         accountSwitcher.layer?.borderWidth = 2

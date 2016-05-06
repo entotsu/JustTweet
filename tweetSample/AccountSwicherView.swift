@@ -20,6 +20,8 @@ class AccountSwicherView: NSView {
             currentIndex = 0
         }
     }
+    var minimumWidth: CGFloat = 0
+    
     private(set) var currentAccount: ACAccount?
 
     private var icons: [NSImageView] = []
@@ -63,6 +65,9 @@ class AccountSwicherView: NSView {
                 height: iconSize
             )
             i = i + 1
+        }
+        if let lastIcon = icons.last {
+            minimumWidth = lastIcon.frame.maxX + margin
         }
     }
     
