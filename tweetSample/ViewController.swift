@@ -24,6 +24,11 @@ class ViewController: NSViewController {
         setup()
     }
     
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        textField?.becomeFirstResponder()
+    }
+    
     private func setup() {
         getAccounts { accounts in
             guard let accounts = accounts else { return }
@@ -48,6 +53,7 @@ class ViewController: NSViewController {
             }
             // design
             self.setupDesign()
+            self.textField?.becomeFirstResponder()
         }
     }
     
