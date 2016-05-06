@@ -17,8 +17,8 @@ extension ViewController {
             accountSwitcher = accountSwitcher,
             textField = textField,
             counter = counter
-            else {
-                fatalError()
+        else {
+            fatalError()
         }
 
         view.layer?.backgroundColor = NSColor.whiteColor().CGColor
