@@ -9,7 +9,7 @@
 import Foundation
 import MASShortcut
 
-let kPreferenceGlobalShortcut = "GlobalShortcut"
+private let kPreferenceGlobalShortcut = "GlobalShortcut"
 
 class GlobalShortcut {
 
