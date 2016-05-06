@@ -42,8 +42,11 @@ class ViewController: NSViewController {
             self.counter = Label()
             self.counter!.stringValue = "\(CHAR_COUNT_LIMIT)"
             // actions
-            self.appDelegate.changeAccountAction = { [weak self] in
+            self.appDelegate.changeAccountToLeftAction = { [weak self] in
                 self?.accountSwitcher?.changeToPrevAccount()
+            }
+            self.appDelegate.changeAccountToRightAction = { [weak self] in
+                self?.accountSwitcher?.changeToNextAccount()
             }
             self.appDelegate.postAction = { [weak self] in
                 self?.post {

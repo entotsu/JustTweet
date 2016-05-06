@@ -64,9 +64,14 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Actions" id="zAo-fy-qul">
                                     <items>
-                                        <menuItem title="change to next account" keyEquivalent="" id="jjE-Cs-pad" userLabel="change to next account">
+                                        <menuItem title="change account →" keyEquivalent="" id="Zd1-Y2-eEX" userLabel="change to next account">
                                             <connections>
-                                                <action selector="changeToNextAccountAction:" target="Voe-Tx-rLC" id="zdE-fe-wJ3"/>
+                                                <action selector="changeAccountToRight:" target="Voe-Tx-rLC" id="Nfx-vO-lL0"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="change account ←" keyEquivalent="" id="jjE-Cs-pad" userLabel="change to next account">
+                                            <connections>
+                                                <action selector="changeAccountToLeft:" target="Voe-Tx-rLC" id="UEu-5c-tnz"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Post" id="FNp-xd-BX5">

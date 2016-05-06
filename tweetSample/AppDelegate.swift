@@ -11,7 +11,8 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    var changeAccountAction: ()->Void = {}
+    var changeAccountToRightAction: ()->Void = {}
+    var changeAccountToLeftAction: ()->Void = {}
     var postAction: ()->Void = {}
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
@@ -25,8 +26,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
 
-    @IBAction func changeToNextAccountAction(sender: AnyObject) {
-        changeAccountAction()
+    @IBAction func changeAccountToRight(sender: AnyObject) {
+        changeAccountToRightAction()
+    }
+
+    @IBAction func changeAccountToLeft(sender: AnyObject) {
+        changeAccountToLeftAction()
     }
     
     @IBAction func postAction(sender: AnyObject) {
