@@ -26,6 +26,7 @@
 		4069D2F71CD781CF00DE519E /* Tweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4069D2F61CD781CF00DE519E /* Tweeter.swift */; };
 		4069D3181CD78CB400DE519E /* NoBarWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4069D3171CD78CB400DE519E /* NoBarWindow.swift */; };
 		4069D31C1CD7982400DE519E /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4069D31B1CD7982400DE519E /* GCD.swift */; };
+		40799EF71CDC4E340052B8AA /* AutoGrowingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40799EF61CDC4E340052B8AA /* AutoGrowingTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -72,6 +73,7 @@
 		4069D2F61CD781CF00DE519E /* Tweeter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweeter.swift; sourceTree = "<group>"; };
 		4069D3171CD78CB400DE519E /* NoBarWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoBarWindow.swift; sourceTree = "<group>"; };
 		4069D31B1CD7982400DE519E /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
+		40799EF61CDC4E340052B8AA /* AutoGrowingTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoGrowingTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				4069D2F61CD781CF00DE519E /* Tweeter.swift */,
 				4069D31B1CD7982400DE519E /* GCD.swift */,
 				402E8CDA1CD7BF7B00A8C603 /* util.swift */,
+				40799EF61CDC4E340052B8AA /* AutoGrowingTextField.swift */,
 				4069D2E91CD7780000DE519E /* ViewController.swift */,
 				402E8D3D1CD8B4C800A8C603 /* TwitterIconUrlHosts.swift */,
 				402E8D351CD8A01200A8C603 /* AccountSwicherView.swift */,
@@ -211,6 +214,7 @@
 			files = (
 				402E8D3E1CD8B4C800A8C603 /* TwitterIconUrlHosts.swift in Sources */,
 				402E8CDB1CD7BF7B00A8C603 /* util.swift in Sources */,
+				40799EF71CDC4E340052B8AA /* AutoGrowingTextField.swift in Sources */,
 				4069D31C1CD7982400DE519E /* GCD.swift in Sources */,
 				402E8D361CD8A01200A8C603 /* AccountSwicherView.swift in Sources */,
 				4069D2F71CD781CF00DE519E /* Tweeter.swift in Sources */,

@@ -15,7 +15,7 @@ private let CHAR_COUNT_LIMIT = 140
 class ViewController: NSViewController {
 
     var accountSwitcher: AccountSwicherView?
-    var textField: NSTextField?
+    var textField: AutoGrowingTextField?
     var counter: Label?
     
     override func viewDidLoad() {
@@ -30,7 +30,7 @@ class ViewController: NSViewController {
             self.accountSwitcher = AccountSwicherView()
             self.accountSwitcher!.accounts = accounts
             // text field
-            self.textField = NSTextField()
+            self.textField = AutoGrowingTextField()
             self.textField!.delegate = self
             // counter
             self.counter = Label()
@@ -58,19 +58,19 @@ class ViewController: NSViewController {
             fatalError()
         }
         // switcher
-        let switcherHeight: CGFloat = 60
-        accountSwitcher.frame = CGRect(x: 0, y: self.view.frame.height - switcherHeight, width: self.view.frame.width, height: switcherHeight)
         self.view.addSubview(accountSwitcher)
+        accountSwitcher.snp_makeConstraints { make in
+            make.top.left.right.equalTo(self.view)
+            make.height.equalTo(60)
+        }
         accountSwitcher.layer?.borderColor = NSColor.redColor().CGColor
         accountSwitcher.layer?.borderWidth = 2
         // text field
-        textField.frame = CGRect(
-            x: 0,
-            y: 0,
-            width: self.view.frame.width,
-            height: self.view.frame.height - accountSwitcher.frame.height
-        )
         self.view.addSubview(textField)
+        textField.snp_makeConstraints { make in
+            make.top.equalTo(accountSwitcher.snp_bottom)
+            make.bottom.left.right.equalTo(self.view)
+        }
         textField.layer?.borderColor = NSColor.blueColor().CGColor
         textField.layer?.borderWidth = 4
         // counter
