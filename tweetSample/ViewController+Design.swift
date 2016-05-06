@@ -12,6 +12,7 @@ import SnapKit
 extension ViewController {
     
     func setupDesign() {
+
         guard let
             accountSwitcher = accountSwitcher,
             textField = textField,
@@ -34,16 +35,6 @@ extension ViewController {
             make.width.equalTo(minimumWidth)
         }
 
-        // separator
-        let separator = NSView()
-        view.addSubview(separator)
-        separator.layer?.backgroundColor = NSColor.blackColor().colorWithAlphaComponent(0.1).CGColor
-        separator.snp_makeConstraints { make in
-            make.top.equalTo(accountSwitcher.snp_bottom)
-            make.height.equalTo(0.5)
-            make.left.right.equalTo(view)
-        }
-
         // text field
         textField.minHeight = 88
         textField.focusRingType = .None
@@ -51,7 +42,7 @@ extension ViewController {
         view.addSubview(textField)
         textField.snp_makeConstraints { make in
             let margin: CGFloat = accountSwitcher.margin
-            make.top.equalTo(separator.snp_bottom).offset(margin)
+            make.top.equalTo(accountSwitcher.snp_bottom).offset(margin / 2)
             make.bottom.right.equalTo(view).offset(-margin)
             make.left.equalTo(view).offset(margin)
         }
