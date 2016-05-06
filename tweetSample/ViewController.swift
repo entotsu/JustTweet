@@ -43,6 +43,7 @@ class ViewController: NSViewController {
             self.appDelegate.didSendPostAction = { [weak self] in
                 self?.post {
                     print("succeed to tweet!")
+                    ToggleApp.hide()
                 }
             }
             // design

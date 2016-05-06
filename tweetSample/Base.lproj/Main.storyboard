@@ -605,7 +605,6 @@ DQ
                                 <menu key="submenu" title="View" id="HyV-fh-RgO">
                                     <items>
                                         <menuItem title="Show Toolbar" keyEquivalent="t" id="snW-S8-Cw5">
-                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                             <connections>
                                                 <action selector="toggleToolbarShown:" target="Ady-hI-5gd" id="BXY-wc-z0C"/>
                                             </connections>
@@ -651,6 +650,19 @@ DQ
                                         <menuItem title="tweetSample Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                             <connections>
                                                 <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Setting" id="Ilx-cO-qh5" userLabel="Setting">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Setting" id="ZU0-Fu-1SB">
+                                    <items>
+                                        <menuItem title="open Global Shortcut Setting" id="ZcV-0c-ZsH" userLabel="open Global Shortcut Setting">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="openGlobalShortcutSetting:" target="Voe-Tx-rLC" id="Mn4-ze-v82"/>
                                             </connections>
                                         </menuItem>
                                     </items>

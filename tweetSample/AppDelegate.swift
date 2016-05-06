@@ -13,22 +13,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     var didSendChangeAccountAction: ()->Void = {}
     var didSendPostAction: ()->Void = {}
+
     @IBAction func changeToNextAccountAction(sender: AnyObject) {
         didSendChangeAccountAction()
     }
+
     @IBAction func postAction(sender: AnyObject) {
         didSendPostAction()
     }
-    
+
+    @IBAction func openGlobalShortcutSetting(sender: AnyObject) {
+        GlobalShortcut.openSettingAlert()
+    }
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        // Insert code here to initialize your application
+        GlobalShortcut.openSettingAlertIfNeed()
+        GlobalShortcut.bind {
+            ToggleApp.toggle()
+        }
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
     }
-
-
 }
 

@@ -27,6 +27,13 @@
 		4069D3181CD78CB400DE519E /* NoBarWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4069D3171CD78CB400DE519E /* NoBarWindow.swift */; };
 		4069D31C1CD7982400DE519E /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4069D31B1CD7982400DE519E /* GCD.swift */; };
 		40799EF71CDC4E340052B8AA /* AutoGrowingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40799EF61CDC4E340052B8AA /* AutoGrowingTextField.swift */; };
+		407ACF1B1CDC9B6B00B48A4A /* GlobalShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407ACF1A1CDC9B6B00B48A4A /* GlobalShortcut.swift */; };
+		407ACF1D1CDC9DAF00B48A4A /* FirstLaunchChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407ACF1C1CDC9DAF00B48A4A /* FirstLaunchChecker.swift */; };
+		407ACF1F1CDC9E2200B48A4A /* ToggleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407ACF1E1CDC9E2200B48A4A /* ToggleApp.swift */; };
+		40B444B41CDCA567000A8BB8 /* MASShortcut.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 40B444B21CDCA567000A8BB8 /* MASShortcut.framework.dSYM */; };
+		40B444B71CDCA58D000A8BB8 /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40B444B11CDCA567000A8BB8 /* MASShortcut.framework */; };
+		40B444B81CDCA58D000A8BB8 /* MASShortcut.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 40B444B11CDCA567000A8BB8 /* MASShortcut.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		40B444B91CDCA5A0000A8BB8 /* MASShortcut.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40B444B21CDCA567000A8BB8 /* MASShortcut.framework.dSYM */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,6 +43,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				40B444B81CDCA58D000A8BB8 /* MASShortcut.framework in Embed Frameworks */,
 				402E8D171CD87D8200A8C603 /* SnapKit.framework in Embed Frameworks */,
 				402E8D3B1CD8A40000A8C603 /* Kingfisher.framework in Embed Frameworks */,
 			);
@@ -50,6 +58,7 @@
 			files = (
 				402E8D191CD87D9500A8C603 /* SnapKit.framework.dSYM in CopyFiles */,
 				402E8D3C1CD8A40E00A8C603 /* Kingfisher.framework.dSYM in CopyFiles */,
+				40B444B91CDCA5A0000A8BB8 /* MASShortcut.framework.dSYM in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +83,11 @@
 		4069D3171CD78CB400DE519E /* NoBarWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoBarWindow.swift; sourceTree = "<group>"; };
 		4069D31B1CD7982400DE519E /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
 		40799EF61CDC4E340052B8AA /* AutoGrowingTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoGrowingTextField.swift; sourceTree = "<group>"; };
+		407ACF1A1CDC9B6B00B48A4A /* GlobalShortcut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalShortcut.swift; sourceTree = "<group>"; };
+		407ACF1C1CDC9DAF00B48A4A /* FirstLaunchChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstLaunchChecker.swift; sourceTree = "<group>"; };
+		407ACF1E1CDC9E2200B48A4A /* ToggleApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleApp.swift; sourceTree = "<group>"; };
+		40B444B11CDCA567000A8BB8 /* MASShortcut.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MASShortcut.framework; sourceTree = "<group>"; };
+		40B444B21CDCA567000A8BB8 /* MASShortcut.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = MASShortcut.framework.dSYM; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40B444B71CDCA58D000A8BB8 /* MASShortcut.framework in Frameworks */,
 				402E8D391CD8A3FA00A8C603 /* Kingfisher.framework in Frameworks */,
 				402E8D161CD87D8200A8C603 /* SnapKit.framework in Frameworks */,
 			);
@@ -92,6 +107,8 @@
 		402E8CE71CD8708500A8C603 /* Carthage */ = {
 			isa = PBXGroup;
 			children = (
+				40B444B11CDCA567000A8BB8 /* MASShortcut.framework */,
+				40B444B21CDCA567000A8BB8 /* MASShortcut.framework.dSYM */,
 				402E8D371CD8A3FA00A8C603 /* Kingfisher.framework */,
 				402E8D381CD8A3FA00A8C603 /* Kingfisher.framework.dSYM */,
 				402E8D121CD87D6E00A8C603 /* SnapKit.framework */,
@@ -126,6 +143,9 @@
 				4069D2F61CD781CF00DE519E /* Tweeter.swift */,
 				4069D31B1CD7982400DE519E /* GCD.swift */,
 				402E8CDA1CD7BF7B00A8C603 /* util.swift */,
+				407ACF1C1CDC9DAF00B48A4A /* FirstLaunchChecker.swift */,
+				407ACF1A1CDC9B6B00B48A4A /* GlobalShortcut.swift */,
+				407ACF1E1CDC9E2200B48A4A /* ToggleApp.swift */,
 				40799EF61CDC4E340052B8AA /* AutoGrowingTextField.swift */,
 				4069D2E91CD7780000DE519E /* ViewController.swift */,
 				402E8D3D1CD8B4C800A8C603 /* TwitterIconUrlHosts.swift */,
@@ -199,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4069D2EC1CD7780000DE519E /* Assets.xcassets in Resources */,
+				40B444B41CDCA567000A8BB8 /* MASShortcut.framework.dSYM in Resources */,
 				4069D2EF1CD7780000DE519E /* Main.storyboard in Resources */,
 				402E8D3A1CD8A3FA00A8C603 /* Kingfisher.framework.dSYM in Resources */,
 				402E8D151CD87D6E00A8C603 /* SnapKit.framework.dSYM in Resources */,
@@ -212,8 +233,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				407ACF1F1CDC9E2200B48A4A /* ToggleApp.swift in Sources */,
 				402E8D3E1CD8B4C800A8C603 /* TwitterIconUrlHosts.swift in Sources */,
+				407ACF1B1CDC9B6B00B48A4A /* GlobalShortcut.swift in Sources */,
 				402E8CDB1CD7BF7B00A8C603 /* util.swift in Sources */,
+				407ACF1D1CDC9DAF00B48A4A /* FirstLaunchChecker.swift in Sources */,
 				40799EF71CDC4E340052B8AA /* AutoGrowingTextField.swift in Sources */,
 				4069D31C1CD7982400DE519E /* GCD.swift in Sources */,
 				402E8D361CD8A01200A8C603 /* AccountSwicherView.swift in Sources */,
