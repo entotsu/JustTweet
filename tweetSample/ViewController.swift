@@ -50,7 +50,6 @@ class ViewController: NSViewController {
             }
             self.appDelegate.postAction = { [weak self] in
                 self?.post {
-                    print("succeed to tweet!")
                     ToggleApp.hide()
                 }
             }
@@ -103,8 +102,8 @@ class ViewController: NSViewController {
             make.left.equalTo(view).offset(margin)
         }
         // counter
-        counter.layer?.opacity = 0.3
         view.addSubview(counter)
+        counter.layer?.opacity = 0.3
         let counterMargin: CGFloat = accountSwitcher.margin
         counter.snp_makeConstraints { make in
             make.bottom.right.equalTo(textField).offset(-counterMargin)
