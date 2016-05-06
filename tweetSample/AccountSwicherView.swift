@@ -17,7 +17,8 @@ class AccountSwicherView: NSView {
             icons.forEach { $0.removeFromSuperview() }
             icons = generateAccountIcons(accounts)
             icons.forEach { addSubview($0) }
-            currentIndex = 0
+            let cachedIndex = UserDefaults.selectedAccountIndex
+            currentIndex = min(cachedIndex, accounts.count - 1)
         }
     }
     var minimumWidth: CGFloat = 0
@@ -32,6 +33,7 @@ class AccountSwicherView: NSView {
             icons.forEach { $0.alphaValue = inactiveAlpha }
             icons[currentIndex].alphaValue = 1
             currentAccount = accounts[currentIndex]
+            UserDefaults.selectedAccountIndex = currentIndex
         }
     }
     private var iconUrlHosts = TwitterIconUrlHosts()
