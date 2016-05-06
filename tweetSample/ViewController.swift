@@ -17,7 +17,7 @@ class ViewController: NSViewController {
     var accountSwitcher: AccountSwicherView?
     var textField: AutoGrowingTextField?
     var counter: Label?
-    let minimumWidth: CGFloat = 250
+    let minimumWidth: CGFloat = 300
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class ViewController: NSViewController {
             self.textField!.delegate = self
             // counter
             self.counter = Label()
-            self.counter!.stringValue = "0"
+            self.counter!.stringValue = "\(CHAR_COUNT_LIMIT)"
             // actions
             self.appDelegate.didSendChangeAccountAction = { [weak self] in
                 self?.accountSwitcher?.changeToPrevAccount()
@@ -58,29 +58,45 @@ class ViewController: NSViewController {
         else {
             fatalError()
         }
+        view.layer?.backgroundColor = NSColor.whiteColor().CGColor
         // switcher
-        self.view.addSubview(accountSwitcher)
+        accountSwitcher.margin = 8
+        view.addSubview(accountSwitcher)
         accountSwitcher.snp_makeConstraints { make in
-            make.top.left.right.equalTo(self.view)
-            make.height.equalTo(60)
+            make.top.left.right.equalTo(view)
+            let iconSize: CGFloat = 40
+            make.height.equalTo(iconSize + accountSwitcher.margin * 2)
             let minimumWidth = max(accountSwitcher.minimumWidth, self.minimumWidth)
             make.width.equalTo(minimumWidth)
         }
-        accountSwitcher.layer?.borderColor = NSColor.redColor().CGColor
-        accountSwitcher.layer?.borderWidth = 2
-        // text field
-        self.view.addSubview(textField)
-        textField.snp_makeConstraints { make in
+        accountSwitcher.layer?.borderColor = NSColor.redColor().colorWithAlphaComponent(0.1).CGColor
+        accountSwitcher.layer?.borderWidth = 1
+        // separator
+        let separator = NSView()
+        separator.layer?.backgroundColor = NSColor.blackColor().colorWithAlphaComponent(0.1).CGColor
+        view.addSubview(separator)
+        separator.snp_makeConstraints { make in
             make.top.equalTo(accountSwitcher.snp_bottom)
-            make.bottom.left.right.equalTo(self.view)
+            make.height.equalTo(0.5)
+            make.left.right.equalTo(view)
         }
-        textField.layer?.borderColor = NSColor.blueColor().CGColor
-        textField.layer?.borderWidth = 4
+        // text field
+        textField.minHeight = 88
+        textField.focusRingType = .None
+        textField.bezeled = false
+        view.addSubview(textField)
+        textField.snp_makeConstraints { make in
+            let margin: CGFloat = accountSwitcher.margin
+            make.top.equalTo(separator.snp_bottom).offset(margin)
+            make.bottom.right.equalTo(view).offset(-margin)
+            make.left.equalTo(view).offset(margin)
+        }
         // counter
+        counter.layer?.opacity = 0.3
         view.addSubview(counter)
-        let counterMargin: CGFloat = 8
+        let counterMargin: CGFloat = accountSwitcher.margin
         counter.snp_makeConstraints { make in
-            make.bottom.right.equalTo(self.textField!).offset(-counterMargin)
+            make.bottom.right.equalTo(textField).offset(-counterMargin)
         }
     }
 }
@@ -126,7 +142,7 @@ extension ViewController {
         else { return }
         let text = textField.stringValue
         guard text.characters.count <= CHAR_COUNT_LIMIT else {
-            errorAlert("Tweet text length must be less than 140.")
+            errorAlert("Tweet text length must be less than \(CHAR_COUNT_LIMIT).")
             return
         }
         textField.stringValue = ""

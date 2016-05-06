@@ -21,7 +21,8 @@ class AccountSwicherView: NSView {
         }
     }
     var minimumWidth: CGFloat = 0
-    
+    var margin: CGFloat = 8
+
     private(set) var currentAccount: ACAccount?
 
     private var icons: [NSImageView] = []
@@ -54,7 +55,6 @@ class AccountSwicherView: NSView {
 
     override func layout() {
         super.layout()
-        let margin: CGFloat = 8
         let iconSize = self.frame.height - margin * 2
         var i = 0
         for icon in icons {
