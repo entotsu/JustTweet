@@ -8,7 +8,6 @@
 
 import Cocoa
 import Accounts
-import SnapKit
 
 private let CHAR_COUNT_LIMIT = 140
 
@@ -57,89 +56,8 @@ class ViewController: NSViewController {
             self.setupDesign()
             self.textField?.becomeFirstResponder()
         }
-    }
-    
-    func setupDesign() {
-        guard let
-            accountSwitcher = accountSwitcher,
-            textField = textField,
-            counter = counter
-        else {
-            fatalError()
-        }
-        view.layer?.backgroundColor = NSColor.whiteColor().CGColor
-        // switcher
-        accountSwitcher.margin = 8
-        accountSwitcher.inactiveAlpha = 0.4
-        view.addSubview(accountSwitcher)
-        accountSwitcher.snp_makeConstraints { make in
-            make.top.left.right.equalTo(view)
-            let iconSize: CGFloat = 40
-            make.height.equalTo(iconSize + accountSwitcher.margin * 2)
-            let minimumWidth = max(accountSwitcher.minimumWidth, self.minimumWidth)
-            make.width.equalTo(minimumWidth)
-        }
-        accountSwitcher.layer?.borderColor = NSColor.redColor().colorWithAlphaComponent(0.1).CGColor
-        accountSwitcher.layer?.borderWidth = 1
-        // separator
-        let separator = NSView()
-        separator.layer?.backgroundColor = NSColor.blackColor().colorWithAlphaComponent(0.1).CGColor
-        view.addSubview(separator)
-        separator.snp_makeConstraints { make in
-            make.top.equalTo(accountSwitcher.snp_bottom)
-            make.height.equalTo(0.5)
-            make.left.right.equalTo(view)
-        }
-        // text field
-        textField.minHeight = 88
-        textField.focusRingType = .None
-        textField.bezeled = false
-        view.addSubview(textField)
-        textField.snp_makeConstraints { make in
-            let margin: CGFloat = accountSwitcher.margin
-            make.top.equalTo(separator.snp_bottom).offset(margin)
-            make.bottom.right.equalTo(view).offset(-margin)
-            make.left.equalTo(view).offset(margin)
-        }
-        // counter
-        view.addSubview(counter)
-        counter.layer?.opacity = 0.3
-        let counterMargin: CGFloat = accountSwitcher.margin
-        counter.snp_makeConstraints { make in
-            make.bottom.right.equalTo(textField).offset(-counterMargin)
-        }
-    }
+    }    
 }
-
-extension ViewController: NSTextFieldDelegate {
-
-    func updateCounter() {
-        guard let
-            counter = self.counter,
-            charCount = self.textField?.stringValue.characters.count
-        else {
-            return
-        }
-        counter.stringValue = "\(CHAR_COUNT_LIMIT - charCount)"
-    }
-    
-    override func controlTextDidChange(obj: NSNotification) {
-        updateCounter()
-    }
-    // return key is newline
-    func control(control: NSControl, textView: NSTextView, doCommandBySelector commandSelector: Selector) -> Bool {
-        if commandSelector == #selector(NSResponder.insertNewline(_:)) {
-            textView.insertNewlineIgnoringFieldEditor(self)
-            return true
-        }
-        else if commandSelector == #selector(NSResponder.insertTab(_:)) {
-            textView.insertTabIgnoringFieldEditor(self)
-            return true
-        }
-        return false
-    }
-}
-
 
 // MARK: - main methods
 
@@ -186,6 +104,36 @@ extension ViewController {
     }
 }
 
+// MARK: - NSTextFieldDelegate
+
+extension ViewController: NSTextFieldDelegate {
+    
+    func updateCounter() {
+        guard let
+            counter = self.counter,
+            charCount = self.textField?.stringValue.characters.count
+            else {
+                return
+        }
+        counter.stringValue = "\(CHAR_COUNT_LIMIT - charCount)"
+    }
+    
+    override func controlTextDidChange(obj: NSNotification) {
+        updateCounter()
+    }
+    // return key is newline
+    func control(control: NSControl, textView: NSTextView, doCommandBySelector commandSelector: Selector) -> Bool {
+        if commandSelector == #selector(NSResponder.insertNewline(_:)) {
+            textView.insertNewlineIgnoringFieldEditor(self)
+            return true
+        }
+        else if commandSelector == #selector(NSResponder.insertTab(_:)) {
+            textView.insertTabIgnoringFieldEditor(self)
+            return true
+        }
+        return false
+    }
+}
 
 // MARK: - util methods
 

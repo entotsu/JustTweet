@@ -40,13 +40,17 @@ class TwitterIconUrlHosts {
                                         progressBlock: nil)
             { result in
                 if let _ = result.error {
-                    self.changeUrl()
+                    if self.changeUrl() {
+                        self.setImageTo(iconView, username: username)
+                    }
                 }
             }
         }
             // url is invalid
         else {
-            self.changeUrl()
+            if self.changeUrl() {
+                self.setImageTo(iconView, username: username)
+            }
         }
     }
 }

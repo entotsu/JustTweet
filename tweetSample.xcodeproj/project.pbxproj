@@ -35,6 +35,7 @@
 		40B444CC1CDCBC32000A8BB8 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B444C41CDCBC32000A8BB8 /* Label.swift */; };
 		40B444CD1CDCBC32000A8BB8 /* NoBarWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B444C51CDCBC32000A8BB8 /* NoBarWindow.swift */; };
 		40B444CF1CDCBC49000A8BB8 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B444CE1CDCBC49000A8BB8 /* UserDefaults.swift */; };
+		40B444D11CDCC12A000A8BB8 /* ViewController+Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B444D01CDCC12A000A8BB8 /* ViewController+Design.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -90,6 +91,7 @@
 		40B444C41CDCBC32000A8BB8 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		40B444C51CDCBC32000A8BB8 /* NoBarWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoBarWindow.swift; sourceTree = "<group>"; };
 		40B444CE1CDCBC49000A8BB8 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		40B444D01CDCC12A000A8BB8 /* ViewController+Design.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Design.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				402E8CE71CD8708500A8C603 /* Carthage */,
 				4069D2E71CD7780000DE519E /* AppDelegate.swift */,
 				4069D2E91CD7780000DE519E /* ViewController.swift */,
+				40B444D01CDCC12A000A8BB8 /* ViewController+Design.swift */,
 				402E8D351CD8A01200A8C603 /* AccountSwicherView.swift */,
 				4069D2F61CD781CF00DE519E /* Tweeter.swift */,
 				402E8D3D1CD8B4C800A8C603 /* TwitterIconUrlHosts.swift */,
@@ -259,6 +262,7 @@
 				402E8D361CD8A01200A8C603 /* AccountSwicherView.swift in Sources */,
 				40B444CA1CDCBC32000A8BB8 /* util.swift in Sources */,
 				40B444CD1CDCBC32000A8BB8 /* NoBarWindow.swift in Sources */,
+				40B444D11CDCC12A000A8BB8 /* ViewController+Design.swift in Sources */,
 				40B444C91CDCBC32000A8BB8 /* ToggleApp.swift in Sources */,
 				4069D2F71CD781CF00DE519E /* Tweeter.swift in Sources */,
 				40B444C81CDCBC32000A8BB8 /* GlobalShortcut.swift in Sources */,
