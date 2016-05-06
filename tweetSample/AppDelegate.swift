@@ -36,5 +36,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func openGlobalShortcutSetting(sender: AnyObject) {
         GlobalShortcut.openSettingAlert()
     }
+    
+    @IBAction func changeAlpha(sender: NSMenuItem) {
+        for button in sender.menu!.itemArray{
+            (button ).state = NSOffState
+        }
+        sender.state = NSOnState
+        let persentageStr = sender.title.substringToIndex(sender.title.endIndex.advancedBy(-1))
+        if let persentage = Int(persentageStr) {
+            let alpha = CGFloat(persentage) / CGFloat(100.0)
+            changeWindowAlpha(alpha)
+        }
+    }
+    
+    func changeWindowAlpha(alpha: CGFloat) {
+        let firstWindow = NSApplication.sharedApplication().windows.first
+        firstWindow?.alphaValue = alpha
+    }
 }
 
