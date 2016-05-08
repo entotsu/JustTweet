@@ -21,7 +21,6 @@ class AccountSwicherView: NSView {
             currentIndex = min(cachedIndex, accounts.count - 1)
         }
     }
-    var minimumWidth: CGFloat = 0
     var margin: CGFloat = 8
     var inactiveAlpha: CGFloat = 0.4
 
@@ -69,9 +68,11 @@ class AccountSwicherView: NSView {
             )
             i = i + 1
         }
-        if let lastIcon = icons.last {
-            minimumWidth = lastIcon.frame.maxX + margin
-        }
+    }
+    
+    func getMinimumWidth(heightOfThisView: CGFloat) -> CGFloat {
+        let iconSize = heightOfThisView - margin * 2
+        return margin + (iconSize + margin) * CGFloat(icons.count)
     }
     
     private func generateAccountIcons(accounts: [ACAccount]) -> [NSImageView] {

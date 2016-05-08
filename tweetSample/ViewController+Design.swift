@@ -30,8 +30,9 @@ extension ViewController {
         accountSwitcher.snp_makeConstraints { make in
             make.top.left.right.equalTo(view)
             let iconSize: CGFloat = 40
-            make.height.equalTo(iconSize + accountSwitcher.margin * 2)
-            let minimumWidth = max(accountSwitcher.minimumWidth, self.minimumWidth)
+            let height = iconSize + accountSwitcher.margin * 2
+            make.height.equalTo(height)
+            let minimumWidth = max(accountSwitcher.getMinimumWidth(height), self.minimumWidth)
             make.width.equalTo(minimumWidth)
         }
 
