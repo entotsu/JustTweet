@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -89,54 +89,108 @@ DQ
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Opacity" id="yBw-SU-wZj">
                                     <items>
-                                        <menuItem title="10%" keyEquivalent="1" id="hlW-Jm-00n">
+                                        <menuItem title="1%" keyEquivalent="1" id="hlW-Jm-00n">
+                                            <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                             <connections>
                                                 <action selector="changeAlpha:" target="Voe-Tx-rLC" id="HK7-O7-gmV"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="20%" keyEquivalent="2" id="Qp6-Z1-Iqd">
+                                        <menuItem title="2%" keyEquivalent="2" id="Qp6-Z1-Iqd">
+                                            <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                             <connections>
                                                 <action selector="changeAlpha:" target="Voe-Tx-rLC" id="VgI-7C-Mh5"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="30%" keyEquivalent="3" id="sVb-La-XSH">
+                                        <menuItem title="3%" keyEquivalent="3" id="sVb-La-XSH">
+                                            <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                             <connections>
                                                 <action selector="changeAlpha:" target="Voe-Tx-rLC" id="sq9-MK-VFa"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="40%" keyEquivalent="4" id="yY2-S5-lBm">
+                                        <menuItem title="4%" keyEquivalent="4" id="yY2-S5-lBm">
+                                            <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                             <connections>
                                                 <action selector="changeAlpha:" target="Voe-Tx-rLC" id="SFt-A9-ILq"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="50%" keyEquivalent="5" id="WH6-eI-L3Z">
+                                        <menuItem title="5%" keyEquivalent="5" id="WH6-eI-L3Z">
+                                            <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                             <connections>
                                                 <action selector="changeAlpha:" target="Voe-Tx-rLC" id="cCC-d0-ELi"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="60%" state="on" keyEquivalent="6" id="EWU-kM-fP6">
+                                        <menuItem title="6%" state="on" keyEquivalent="6" id="EWU-kM-fP6">
+                                            <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                             <connections>
                                                 <action selector="changeAlpha:" target="Voe-Tx-rLC" id="J4S-bK-ymU"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="70%" keyEquivalent="7" id="rAy-UT-dCv">
+                                        <menuItem title="7%" keyEquivalent="7" id="rAy-UT-dCv">
+                                            <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                             <connections>
                                                 <action selector="changeAlpha:" target="Voe-Tx-rLC" id="3kb-a9-0zl"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="80%" keyEquivalent="8" id="Ss6-nB-80T">
+                                        <menuItem title="8%" keyEquivalent="8" id="Ss6-nB-80T">
+                                            <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                             <connections>
                                                 <action selector="changeAlpha:" target="Voe-Tx-rLC" id="VBK-cC-jaz"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="90%" keyEquivalent="9" id="axJ-Kl-lt8">
+                                        <menuItem title="9%" keyEquivalent="9" id="axJ-Kl-lt8">
+                                            <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                             <connections>
                                                 <action selector="changeAlpha:" target="Voe-Tx-rLC" id="YZY-ru-GUz"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="100%" keyEquivalent="0" id="jmx-aD-2eN">
+                                        <menuItem title="10%" keyEquivalent="1" id="Wdk-Lo-UzN">
                                             <connections>
-                                                <action selector="changeAlpha:" target="Voe-Tx-rLC" id="O0K-dd-9my"/>
+                                                <action selector="changeAlpha:" target="Voe-Tx-rLC" id="ZIC-QQ-f3Q"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="20%" keyEquivalent="2" id="RLf-7a-WTL">
+                                            <connections>
+                                                <action selector="changeAlpha:" target="Voe-Tx-rLC" id="d42-7O-AHC"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="30%" keyEquivalent="3" id="M0G-qj-1w5">
+                                            <connections>
+                                                <action selector="changeAlpha:" target="Voe-Tx-rLC" id="zEC-8Z-sQC"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="40%" keyEquivalent="4" id="Oid-dY-cmU">
+                                            <connections>
+                                                <action selector="changeAlpha:" target="Voe-Tx-rLC" id="UVy-7F-1dk"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="50%" keyEquivalent="5" id="3O1-hA-zSf">
+                                            <connections>
+                                                <action selector="changeAlpha:" target="Voe-Tx-rLC" id="6sp-J8-Mj8"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="60%" state="on" keyEquivalent="6" id="XhD-ct-DMb">
+                                            <connections>
+                                                <action selector="changeAlpha:" target="Voe-Tx-rLC" id="aGA-qC-04B"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="70%" keyEquivalent="7" id="Bcd-7e-vui">
+                                            <connections>
+                                                <action selector="changeAlpha:" target="Voe-Tx-rLC" id="sNO-7M-Gux"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="80%" keyEquivalent="8" id="M2b-wz-gl5">
+                                            <connections>
+                                                <action selector="changeAlpha:" target="Voe-Tx-rLC" id="11y-v0-4oR"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="90%" keyEquivalent="9" id="usD-oq-vPn">
+                                            <connections>
+                                                <action selector="changeAlpha:" target="Voe-Tx-rLC" id="fbm-7n-Lcj"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="100%" keyEquivalent="0" id="VCv-rX-Wrh">
+                                            <connections>
+                                                <action selector="changeAlpha:" target="Voe-Tx-rLC" id="SMu-SX-gV7"/>
                                             </connections>
                                         </menuItem>
                                     </items>
