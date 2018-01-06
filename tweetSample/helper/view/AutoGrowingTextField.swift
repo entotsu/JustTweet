@@ -22,17 +22,17 @@ class AutoGrowingTextField: NSTextField {
     var lastSize: NSSize?
     var isEditing = false
     
-    override func textDidBeginEditing(notification: NSNotification) {
+    override func textDidBeginEditing(_ notification: Notification) {
         super.textDidBeginEditing(notification)
         isEditing = true
     }
     
-    override func textDidEndEditing(notification: NSNotification) {
+    override func textDidEndEditing(_ notification: Notification) {
         super.textDidEndEditing(notification)
         isEditing = false
     }
     
-    override func textDidChange(notification: NSNotification) {
+    override func textDidChange(_ notification: Notification) {
         super.textDidChange(notification)
         self.invalidateIntrinsicContentSize()
     }
@@ -46,28 +46,23 @@ class AutoGrowingTextField: NSTextField {
         // Only update the size if we’re editing the text, or if we’ve not set it yet
         // If we try and update it while another text field is selected, it may shrink back down to only the size of one line (for some reason?)
         if isEditing || lastSize == nil {
-            guard let
+            guard
                 // If we’re being edited, get the shared NSTextView field editor, so we can get more info
-                textView = self.window?.fieldEditor(false, forObject: self) as? NSTextView,
-                container = textView.textContainer,
-                newHeight = container.layoutManager?.usedRectForTextContainer(container).height
+                let textView = self.window?.fieldEditor(false, for: self) as? NSTextView,
+                let container = textView.textContainer,
+                let newHeight = container.layoutManager?.usedRect(for: container).height
             else {
                 return lastSize ?? minSize
             }
             var newSize = super.intrinsicContentSize
             newSize.height = newHeight + bottomSpace
 
-            if let
-                heightLimit = heightLimit,
-                lastSize = lastSize
-            where newSize.height > heightLimit {
+            if let heightLimit = heightLimit, let lastSize = lastSize, newSize.height > heightLimit {
                 newSize = lastSize
             }
 
-            if let
-                minHeight = minHeight
-            where newSize.height < minHeight {
-                newSize.height = minHeight
+            if minHeight == minHeight, newSize.height < minHeight! {
+                newSize.height = minHeight!
             }
             
             lastSize = newSize

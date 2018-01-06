@@ -7,25 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		402E8D151CD87D6E00A8C603 /* SnapKit.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 402E8D131CD87D6E00A8C603 /* SnapKit.framework.dSYM */; };
-		402E8D161CD87D8200A8C603 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 402E8D121CD87D6E00A8C603 /* SnapKit.framework */; };
-		402E8D171CD87D8200A8C603 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 402E8D121CD87D6E00A8C603 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		402E8D191CD87D9500A8C603 /* SnapKit.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 402E8D131CD87D6E00A8C603 /* SnapKit.framework.dSYM */; };
 		402E8D361CD8A01200A8C603 /* AccountSwicherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402E8D351CD8A01200A8C603 /* AccountSwicherView.swift */; };
-		402E8D391CD8A3FA00A8C603 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 402E8D371CD8A3FA00A8C603 /* Kingfisher.framework */; };
-		402E8D3A1CD8A3FA00A8C603 /* Kingfisher.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 402E8D381CD8A3FA00A8C603 /* Kingfisher.framework.dSYM */; };
-		402E8D3B1CD8A40000A8C603 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 402E8D371CD8A3FA00A8C603 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		402E8D3C1CD8A40E00A8C603 /* Kingfisher.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 402E8D381CD8A3FA00A8C603 /* Kingfisher.framework.dSYM */; };
 		402E8D3E1CD8B4C800A8C603 /* TwitterIconUrlHosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402E8D3D1CD8B4C800A8C603 /* TwitterIconUrlHosts.swift */; };
 		4069D2E81CD7780000DE519E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4069D2E71CD7780000DE519E /* AppDelegate.swift */; };
 		4069D2EA1CD7780000DE519E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4069D2E91CD7780000DE519E /* ViewController.swift */; };
 		4069D2EC1CD7780000DE519E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4069D2EB1CD7780000DE519E /* Assets.xcassets */; };
 		4069D2EF1CD7780000DE519E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4069D2ED1CD7780000DE519E /* Main.storyboard */; };
 		4069D2F71CD781CF00DE519E /* Tweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4069D2F61CD781CF00DE519E /* Tweeter.swift */; };
-		40B444B41CDCA567000A8BB8 /* MASShortcut.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 40B444B21CDCA567000A8BB8 /* MASShortcut.framework.dSYM */; };
-		40B444B71CDCA58D000A8BB8 /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40B444B11CDCA567000A8BB8 /* MASShortcut.framework */; };
-		40B444B81CDCA58D000A8BB8 /* MASShortcut.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 40B444B11CDCA567000A8BB8 /* MASShortcut.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		40B444B91CDCA5A0000A8BB8 /* MASShortcut.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40B444B21CDCA567000A8BB8 /* MASShortcut.framework.dSYM */; };
 		40B444C61CDCBC32000A8BB8 /* FirstLaunchChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B444BD1CDCBC32000A8BB8 /* FirstLaunchChecker.swift */; };
 		40B444C71CDCBC32000A8BB8 /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B444BE1CDCBC32000A8BB8 /* GCD.swift */; };
 		40B444C81CDCBC32000A8BB8 /* GlobalShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B444BF1CDCBC32000A8BB8 /* GlobalShortcut.swift */; };
@@ -36,6 +24,18 @@
 		40B444CD1CDCBC32000A8BB8 /* NoBarWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B444C51CDCBC32000A8BB8 /* NoBarWindow.swift */; };
 		40B444CF1CDCBC49000A8BB8 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B444CE1CDCBC49000A8BB8 /* UserDefaults.swift */; };
 		40B444D11CDCC12A000A8BB8 /* ViewController+Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B444D01CDCC12A000A8BB8 /* ViewController+Design.swift */; };
+		40C5E85C200142A000A9375A /* Kingfisher.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 40C5E856200142A000A9375A /* Kingfisher.framework.dSYM */; };
+		40C5E85D200142A000A9375A /* SnapKit.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 40C5E857200142A000A9375A /* SnapKit.framework.dSYM */; };
+		40C5E85F200142A000A9375A /* MASShortcut.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 40C5E859200142A000A9375A /* MASShortcut.framework.dSYM */; };
+		40C5E861200142BD00A9375A /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40C5E855200142A000A9375A /* Kingfisher.framework */; };
+		40C5E862200142BD00A9375A /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 40C5E855200142A000A9375A /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		40C5E863200142BD00A9375A /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40C5E858200142A000A9375A /* SnapKit.framework */; };
+		40C5E864200142BD00A9375A /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 40C5E858200142A000A9375A /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		40C5E865200142BD00A9375A /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40C5E85A200142A000A9375A /* MASShortcut.framework */; };
+		40C5E866200142BD00A9375A /* MASShortcut.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 40C5E85A200142A000A9375A /* MASShortcut.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		40C5E867200142D800A9375A /* Kingfisher.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40C5E856200142A000A9375A /* Kingfisher.framework.dSYM */; };
+		40C5E868200142D800A9375A /* SnapKit.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40C5E857200142A000A9375A /* SnapKit.framework.dSYM */; };
+		40C5E869200142D800A9375A /* MASShortcut.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40C5E859200142A000A9375A /* MASShortcut.framework.dSYM */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,9 +45,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				40B444B81CDCA58D000A8BB8 /* MASShortcut.framework in Embed Frameworks */,
-				402E8D171CD87D8200A8C603 /* SnapKit.framework in Embed Frameworks */,
-				402E8D3B1CD8A40000A8C603 /* Kingfisher.framework in Embed Frameworks */,
+				40C5E866200142BD00A9375A /* MASShortcut.framework in Embed Frameworks */,
+				40C5E862200142BD00A9375A /* Kingfisher.framework in Embed Frameworks */,
+				40C5E864200142BD00A9375A /* SnapKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,20 +58,16 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				402E8D191CD87D9500A8C603 /* SnapKit.framework.dSYM in CopyFiles */,
-				402E8D3C1CD8A40E00A8C603 /* Kingfisher.framework.dSYM in CopyFiles */,
-				40B444B91CDCA5A0000A8BB8 /* MASShortcut.framework.dSYM in CopyFiles */,
+				40C5E867200142D800A9375A /* Kingfisher.framework.dSYM in CopyFiles */,
+				40C5E868200142D800A9375A /* SnapKit.framework.dSYM in CopyFiles */,
+				40C5E869200142D800A9375A /* MASShortcut.framework.dSYM in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		402E8D121CD87D6E00A8C603 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SnapKit.framework; sourceTree = "<group>"; };
-		402E8D131CD87D6E00A8C603 /* SnapKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = SnapKit.framework.dSYM; sourceTree = "<group>"; };
 		402E8D351CD8A01200A8C603 /* AccountSwicherView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSwicherView.swift; sourceTree = "<group>"; };
-		402E8D371CD8A3FA00A8C603 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = "<group>"; };
-		402E8D381CD8A3FA00A8C603 /* Kingfisher.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = Kingfisher.framework.dSYM; sourceTree = "<group>"; };
 		402E8D3D1CD8B4C800A8C603 /* TwitterIconUrlHosts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterIconUrlHosts.swift; sourceTree = "<group>"; };
 		4069D2E41CD7780000DE519E /* tweetSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tweetSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4069D2E71CD7780000DE519E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,8 +76,6 @@
 		4069D2EE1CD7780000DE519E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4069D2F01CD7780000DE519E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4069D2F61CD781CF00DE519E /* Tweeter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweeter.swift; sourceTree = "<group>"; };
-		40B444B11CDCA567000A8BB8 /* MASShortcut.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MASShortcut.framework; sourceTree = "<group>"; };
-		40B444B21CDCA567000A8BB8 /* MASShortcut.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = MASShortcut.framework.dSYM; sourceTree = "<group>"; };
 		40B444BD1CDCBC32000A8BB8 /* FirstLaunchChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstLaunchChecker.swift; sourceTree = "<group>"; };
 		40B444BE1CDCBC32000A8BB8 /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
 		40B444BF1CDCBC32000A8BB8 /* GlobalShortcut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalShortcut.swift; sourceTree = "<group>"; };
@@ -92,6 +86,12 @@
 		40B444C51CDCBC32000A8BB8 /* NoBarWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoBarWindow.swift; sourceTree = "<group>"; };
 		40B444CE1CDCBC49000A8BB8 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		40B444D01CDCC12A000A8BB8 /* ViewController+Design.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Design.swift"; sourceTree = "<group>"; };
+		40C5E855200142A000A9375A /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = "<group>"; };
+		40C5E856200142A000A9375A /* Kingfisher.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = Kingfisher.framework.dSYM; sourceTree = "<group>"; };
+		40C5E857200142A000A9375A /* SnapKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = SnapKit.framework.dSYM; sourceTree = "<group>"; };
+		40C5E858200142A000A9375A /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SnapKit.framework; sourceTree = "<group>"; };
+		40C5E859200142A000A9375A /* MASShortcut.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = MASShortcut.framework.dSYM; sourceTree = "<group>"; };
+		40C5E85A200142A000A9375A /* MASShortcut.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MASShortcut.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,32 +99,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40B444B71CDCA58D000A8BB8 /* MASShortcut.framework in Frameworks */,
-				402E8D391CD8A3FA00A8C603 /* Kingfisher.framework in Frameworks */,
-				402E8D161CD87D8200A8C603 /* SnapKit.framework in Frameworks */,
+				40C5E865200142BD00A9375A /* MASShortcut.framework in Frameworks */,
+				40C5E861200142BD00A9375A /* Kingfisher.framework in Frameworks */,
+				40C5E863200142BD00A9375A /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		402E8CE71CD8708500A8C603 /* Carthage */ = {
-			isa = PBXGroup;
-			children = (
-				40B444B11CDCA567000A8BB8 /* MASShortcut.framework */,
-				40B444B21CDCA567000A8BB8 /* MASShortcut.framework.dSYM */,
-				402E8D371CD8A3FA00A8C603 /* Kingfisher.framework */,
-				402E8D381CD8A3FA00A8C603 /* Kingfisher.framework.dSYM */,
-				402E8D121CD87D6E00A8C603 /* SnapKit.framework */,
-				402E8D131CD87D6E00A8C603 /* SnapKit.framework.dSYM */,
-			);
-			name = Carthage;
-			path = Carthage/Build/Mac;
-			sourceTree = SOURCE_ROOT;
-		};
 		4069D2DB1CD7780000DE519E = {
 			isa = PBXGroup;
 			children = (
+				40C5E854200142A000A9375A /* Carthage */,
 				4069D2E61CD7780000DE519E /* tweetSample */,
 				4069D2E51CD7780000DE519E /* Products */,
 			);
@@ -141,7 +128,6 @@
 		4069D2E61CD7780000DE519E /* tweetSample */ = {
 			isa = PBXGroup;
 			children = (
-				402E8CE71CD8708500A8C603 /* Carthage */,
 				4069D2E71CD7780000DE519E /* AppDelegate.swift */,
 				4069D2E91CD7780000DE519E /* ViewController.swift */,
 				40B444D01CDCC12A000A8BB8 /* ViewController+Design.swift */,
@@ -178,6 +164,20 @@
 				40B444C51CDCBC32000A8BB8 /* NoBarWindow.swift */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		40C5E854200142A000A9375A /* Carthage */ = {
+			isa = PBXGroup;
+			children = (
+				40C5E855200142A000A9375A /* Kingfisher.framework */,
+				40C5E856200142A000A9375A /* Kingfisher.framework.dSYM */,
+				40C5E858200142A000A9375A /* SnapKit.framework */,
+				40C5E857200142A000A9375A /* SnapKit.framework.dSYM */,
+				40C5E85A200142A000A9375A /* MASShortcut.framework */,
+				40C5E859200142A000A9375A /* MASShortcut.framework.dSYM */,
+			);
+			name = Carthage;
+			path = Carthage/Build/Carthage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,10 +241,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4069D2EC1CD7780000DE519E /* Assets.xcassets in Resources */,
-				40B444B41CDCA567000A8BB8 /* MASShortcut.framework.dSYM in Resources */,
+				40C5E85F200142A000A9375A /* MASShortcut.framework.dSYM in Resources */,
 				4069D2EF1CD7780000DE519E /* Main.storyboard in Resources */,
-				402E8D3A1CD8A3FA00A8C603 /* Kingfisher.framework.dSYM in Resources */,
-				402E8D151CD87D6E00A8C603 /* SnapKit.framework.dSYM in Resources */,
+				40C5E85C200142A000A9375A /* Kingfisher.framework.dSYM in Resources */,
+				40C5E85D200142A000A9375A /* SnapKit.framework.dSYM in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,11 +378,13 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/tweetSample",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build/Carthage",
 				);
 				INFOPLIST_FILE = tweetSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.taku-oka.tweetSample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -395,11 +397,13 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/tweetSample",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build/Carthage",
 				);
 				INFOPLIST_FILE = tweetSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.taku-oka.tweetSample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

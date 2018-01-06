@@ -13,54 +13,49 @@ import Social
 
 class Tweeter {
     
-    typealias TweeterTweetComplition = (data: NSData?, res: NSHTTPURLResponse?, err: NSError?) -> Void
+    typealias TweeterTweetComplition = (_ data: Data?, _ res: HTTPURLResponse?, _ err: Error?) -> Void
     
     class func getAccounts(
-        onError onError: (errorMessage: String)->Void,
-        onSuccess: [ACAccount] -> Void
+        onError: @escaping (_ errorMessage: String) -> Void,
+        onSuccess: @escaping ([ACAccount]) -> Void
     ) {
         let accountStore = ACAccountStore()
-        let accountType = accountStore.accountTypeWithAccountTypeIdentifier(ACAccountTypeIdentifierTwitter)
-        accountStore.requestAccessToAccountsWithType(accountType, options: nil) { granted, err in
+        let accountType = accountStore.accountType(withAccountTypeIdentifier: ACAccountTypeIdentifierTwitter)
+        accountStore.requestAccessToAccounts(with: accountType, options: nil) { granted, err in
             guard granted else {
-                gcd.sync(.Main) {
-                    onError(errorMessage: "Permission denied to acceess to Twitter accounts.")
+                DispatchQueue.main.sync {
+                    onError("Permission denied to acceess to Twitter accounts.")
                 }
                 return
             }
             
-            let accounts = accountStore.accountsWithAccountType(accountType) as! [ACAccount]
-            gcd.sync(.Main) {
+            let accounts = accountStore.accounts(with: accountType) as! [ACAccount]
+            DispatchQueue.main.sync {
                 onSuccess(accounts)
             }
         }
     }
     
-    class func tweet(text: String, account: ACAccount, completion: TweeterTweetComplition) {
+    class func tweet(text: String, account: ACAccount, completion: @escaping TweeterTweetComplition) {
         let apiUrlAddress = "https://api.twitter.com/1.1/statuses/update.json"
         guard let apiUrl = NSURL(string: apiUrlAddress) else {
             let errMessage = "API URL address is invalid.  -> \(apiUrlAddress)"
             let err = NSError(domain: "", code: 0, userInfo: ["message": errMessage])
-            gcd.sync(.Main) {
-                completion(data: nil, res: nil, err: err)
+            DispatchQueue.main.sync {
+                completion(nil, nil, err)
             }
             return
         }
-        let request = SLRequest(
-            forServiceType: SLServiceTypeTwitter,
-            requestMethod: SLRequestMethod.POST,
-            URL: apiUrl,
-            parameters: ["status": text]
-        )
-        request.account = account
-        request.performRequestWithHandler { data, res, err in
+        let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: .POST, url: apiUrl as URL, parameters: ["status": text])
+        request?.account = account
+        request?.perform { data, res, err in
             if let err = err {
-                gcd.sync(.Main) {
-                    completion(data: data, res: res, err: err)
+                DispatchQueue.main.sync {
+                    completion(data, res, err)
                 }
             }
-            gcd.sync(.Main) {
-                completion(data: data, res: res, err: nil)
+            DispatchQueue.main.sync {
+                completion(data, res, nil)
             }
         }
     }

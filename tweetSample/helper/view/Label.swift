@@ -11,7 +11,7 @@ import Cocoa
 class Label: NSTextField {
     
     init() {
-        super.init(frame: CGRectZero)
+        super.init(frame: .zero)
         commonInit()
     }
     
@@ -22,8 +22,8 @@ class Label: NSTextField {
     
     func commonInit() {
         self.drawsBackground = false
-        self.bordered = false
-        self.editable = false
-        self.selectable = false
+        self.isBordered = false
+        self.isEditable = false
+        self.isSelectable = false
     }
 }

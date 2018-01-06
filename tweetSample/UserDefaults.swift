@@ -10,16 +10,16 @@ import Foundation
 
 class UserDefaults {
 
-    class private var ud: NSUserDefaults {
-        return NSUserDefaults.standardUserDefaults()
+    class private var ud: Foundation.UserDefaults {
+        return Foundation.UserDefaults.standard
     }
 
     class var selectedAccountIndex: Int {
         set {
-            ud.setInteger(newValue, forKey: "selectedAccountIndex")
+            ud.set(newValue, forKey: "selectedAccountIndex")
         }
         get {
-            return ud.integerForKey("selectedAccountIndex")
+            return ud.integer(forKey: "selectedAccountIndex")
         }
     }
 }

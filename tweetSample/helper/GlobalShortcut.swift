@@ -13,8 +13,8 @@ private let kPreferenceGlobalShortcut = "GlobalShortcut"
 
 class GlobalShortcut {
 
-    class func bind(action: ()->Void) {
-        MASShortcutBinder.sharedBinder().bindShortcutWithDefaultsKey(kPreferenceGlobalShortcut) {
+    class func bind(action: @escaping ()->Void) {
+        MASShortcutBinder.shared().bindShortcut(withDefaultsKey: kPreferenceGlobalShortcut) {
             action()
         }
     }
@@ -26,15 +26,15 @@ class GlobalShortcut {
     }
     
     class func openSettingAlert() {
-        guard let firstWindow = NSApplication.sharedApplication().windows.first else { return }
+        guard let firstWindow = NSApplication.shared.windows.first else { return }
         let alert = NSAlert()
-        alert.alertStyle = NSAlertStyle.InformationalAlertStyle
+        alert.alertStyle = NSAlert.Style.informational
         alert.messageText = "Set Global Shortcut for Show/Hide!"
         let shortcutView = MASShortcutView()
         shortcutView.frame = NSRect(x: 0, y: 0, width: 300, height: 20)
         shortcutView.associatedUserDefaultsKey = kPreferenceGlobalShortcut
         alert.accessoryView = shortcutView
-        alert.addButtonWithTitle("OK")
-        alert.beginSheetModalForWindow(firstWindow, completionHandler: nil)
+        alert.addButton(withTitle: "OK")
+        alert.beginSheetModal(for: firstWindow, completionHandler: nil)
     }
 }

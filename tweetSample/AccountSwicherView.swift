@@ -15,7 +15,7 @@ class AccountSwicherView: NSView {
     var accounts: [ACAccount] = [] {
         didSet {
             icons.forEach { $0.removeFromSuperview() }
-            icons = generateAccountIcons(accounts)
+            icons = generateAccountIcons(accounts: accounts)
             icons.forEach { addSubview($0) }
             let cachedIndex = UserDefaults.selectedAccountIndex
             currentIndex = min(cachedIndex, accounts.count - 1)
@@ -80,20 +80,20 @@ class AccountSwicherView: NSView {
         var i = 0
         for ac in accounts {
             let iconView = NSImageView()
-            iconUrlHosts.setImageTo(iconView, username: ac.username)
+            iconUrlHosts.setImageTo(iconView: iconView, username: ac.username)
             iconView.wantsLayer = true
-            iconView.layer!.backgroundColor = NSColor.grayColor().CGColor
+            iconView.layer!.backgroundColor = NSColor.gray.cgColor
             iconView.layer!.cornerRadius = 2
             iconView.layer!.masksToBounds = true
             iconView.tag = i
-            iconView.addGestureRecognizer(NSClickGestureRecognizer(target: self, action: #selector(AccountSwicherView.didClickIcon(_:))))
+            iconView.addGestureRecognizer(NSClickGestureRecognizer(target: self, action: #selector(self.didClickIcon(sender:))))
             iconViews.append(iconView)
             i = i + 1
         }
         return iconViews
     }
     
-    func didClickIcon(sender: NSClickGestureRecognizer) {
+    @objc func didClickIcon(sender: NSClickGestureRecognizer) {
         guard let index = sender.view?.tag else { return }
         currentIndex = index
     }

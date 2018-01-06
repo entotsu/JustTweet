@@ -10,12 +10,12 @@ import Foundation
 
 class FirstLaunchChecker {
     class func isFirstLaunch() -> Bool{
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if let isAppAlreadyLaunchedOnce = defaults.stringForKey("isAppAlreadyLaunchedOnce"){
+        let defaults = Foundation.UserDefaults.standard
+        if let isAppAlreadyLaunchedOnce = defaults.string(forKey: "isAppAlreadyLaunchedOnce"){
             print("App already launched : \(isAppAlreadyLaunchedOnce)")
             return false
         }else{
-            defaults.setBool(true, forKey: "isAppAlreadyLaunchedOnce")
+            defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
             print("App launched first time")
             return true
         }

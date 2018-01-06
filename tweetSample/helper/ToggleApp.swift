@@ -12,23 +12,23 @@ import Cocoa
 class ToggleApp {
 
     class func toggle() {
-        let app = NSApplication.sharedApplication()
-        if app.active {
+        let app = NSApplication.shared
+        if app.isActive {
             app.hide(nil)
         }
         else {
-            let bundlePath = NSBundle.mainBundle().bundlePath
-            let appName = NSFileManager.defaultManager().displayNameAtPath(bundlePath)
-            let ws = NSWorkspace.sharedWorkspace()
-            guard let appPath = ws.fullPathForApplication(appName) else { return }
+            let bundlePath = Bundle.main.bundlePath
+            let appName = FileManager.default.displayName(atPath: bundlePath)
+            let ws = NSWorkspace.shared
+            guard let appPath = ws.fullPath(forApplication: appName) else { return }
             let url = NSURL(fileURLWithPath: appPath)
-            _ = try? ws.launchApplicationAtURL(url, options: NSWorkspaceLaunchOptions.Default, configuration: [NSWorkspaceLaunchConfigurationArguments:[]])
+            _ = try? ws.launchApplication(at: url as URL, options: NSWorkspace.LaunchOptions.default, configuration: [NSWorkspace.LaunchConfigurationKey.arguments:[]])
         }
     }
     
     class func hide() {
-        let app = NSApplication.sharedApplication()
-        if app.active {
+        let app = NSApplication.shared
+        if app.isActive {
             app.hide(nil)
         }
     }

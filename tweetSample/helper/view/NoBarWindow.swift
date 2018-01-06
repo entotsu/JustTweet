@@ -20,11 +20,12 @@ import Cocoa
 
 class NoBarWindow: NSWindow {
     
-    override var canBecomeKeyWindow: Bool {
+    
+    override var canBecomeKey: Bool {
         return true
     }
     
-    override var canBecomeMainWindow: Bool {
+    override var canBecomeMain: Bool {
         return true
     }
     

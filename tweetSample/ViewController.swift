@@ -63,38 +63,38 @@ class ViewController: NSViewController {
 
 extension ViewController {
 
-    private func post(didSuccess: Closure) {
-        guard let
-            textField = self.textField,
-            currentAccount = self.accountSwitcher?.currentAccount
+    private func post(didSuccess: @escaping Closure) {
+        guard
+            let textField = self.textField,
+            let currentAccount = self.accountSwitcher?.currentAccount
         else { return }
         let text = textField.stringValue
-        guard text.characters.count <= CHAR_COUNT_LIMIT else {
-            errorAlert("Tweet text length must be less than \(CHAR_COUNT_LIMIT).")
+        guard text.count <= CHAR_COUNT_LIMIT else {
+            errorAlert(msg: "Tweet text length must be less than \(CHAR_COUNT_LIMIT).")
             return
         }
         textField.stringValue = ""
         self.updateCounter()
-        Tweeter.tweet(text, account: currentAccount) { result in
-            if let err = result.err {
+        Tweeter.tweet(text: text, account: currentAccount) { data, res, err in
+            if let err = err {
                 textField.stringValue = text
-                errorAlert("Failed To Tweet. \(err.description)")
+                errorAlert(msg: "Failed To Tweet. \(err)")
                 return
             }
             didSuccess()
         }
     }
 
-    private func getAccounts(completion: ([ACAccount]?->Void)) {
+    private func getAccounts(completion: @escaping (([ACAccount]?)->Void)) {
         Tweeter.getAccounts(
             onError: { errMsg in
-                errorAlert(errMsg)
+                errorAlert(msg: errMsg)
                 completion(nil)
                 return
             },
             onSuccess:  { accounts in
                 guard accounts.count > 0 else {
-                    errorAlert("Number of Twitter accounts is 0.")
+                    errorAlert(msg: "Number of Twitter accounts is 0.")
                     completion(nil)
                     return
                 }
@@ -109,18 +109,19 @@ extension ViewController {
 extension ViewController: NSTextFieldDelegate {
     
     func updateCounter() {
-        guard let
-            counter = self.counter,
-            charCount = self.textField?.stringValue.characters.count
+        guard
+            let counter = self.counter,
+            let charCount = self.textField?.stringValue.characters.count
             else {
                 return
         }
         counter.stringValue = "\(CHAR_COUNT_LIMIT - charCount)"
     }
     
-    override func controlTextDidChange(obj: NSNotification) {
+    override func controlTextDidChange(_ obj: Notification) {
         updateCounter()
     }
+    
     // return key is newline
     func control(control: NSControl, textView: NSTextView, doCommandBySelector commandSelector: Selector) -> Bool {
         if commandSelector == #selector(NSResponder.insertNewline(_:)) {
@@ -139,6 +140,6 @@ extension ViewController: NSTextFieldDelegate {
 
 extension ViewController {
     private var appDelegate: AppDelegate {
-        return NSApplication.sharedApplication().delegate as! AppDelegate
+        return NSApplication.shared.delegate as! AppDelegate
     }
 }

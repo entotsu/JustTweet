@@ -15,13 +15,13 @@ extension ViewController {
 
         guard let
             accountSwitcher = accountSwitcher,
-            textField = textField,
-            counter = counter
+            let textField = textField,
+            let counter = counter
         else {
             fatalError()
         }
 
-        view.layer?.backgroundColor = NSColor.whiteColor().CGColor
+        view.layer?.backgroundColor = NSColor.white.cgColor
 
         // switcher
         accountSwitcher.margin = 8
@@ -32,14 +32,14 @@ extension ViewController {
             let iconSize: CGFloat = 40
             let height = iconSize + accountSwitcher.margin * 2
             make.height.equalTo(height)
-            let minimumWidth = max(accountSwitcher.getMinimumWidth(height), self.minimumWidth)
+            let minimumWidth = max(accountSwitcher.getMinimumWidth(heightOfThisView: height), self.minimumWidth)
             make.width.equalTo(minimumWidth)
         }
 
         // text field
         textField.minHeight = 88
-        textField.focusRingType = .None
-        textField.bezeled = false
+        textField.focusRingType = .none
+        textField.isBezeled = false
         view.addSubview(textField)
         textField.snp_makeConstraints { make in
             let margin: CGFloat = accountSwitcher.margin

@@ -43,19 +43,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func changeAlpha(sender: NSMenuItem) {
-        for button in sender.menu!.itemArray{
-            (button ).state = NSOffState
+        for button in sender.menu!.items{
+            (button ).state = NSControl.StateValue.off
         }
-        sender.state = NSOnState
-        let persentageStr = sender.title.substringToIndex(sender.title.endIndex.advancedBy(-1))
+        sender.state = NSControl.StateValue.on
+        let persentageStr = String(sender.title.dropLast())
         if let persentage = Int(persentageStr) {
             let alpha = CGFloat(persentage) / CGFloat(100.0)
-            changeWindowAlpha(alpha)
+            changeWindowAlpha(alpha: alpha)
         }
     }
     
     func changeWindowAlpha(alpha: CGFloat) {
-        let firstWindow = NSApplication.sharedApplication().windows.first
+        let firstWindow = NSApplication.shared.windows.first
         firstWindow?.alphaValue = alpha
     }
 }

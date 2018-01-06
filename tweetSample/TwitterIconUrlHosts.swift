@@ -28,20 +28,20 @@ class TwitterIconUrlHosts {
     }
     
     func getUrl(username: String) -> String {
-        return hostUrls[currentUrlIndex].stringByReplacingOccurrencesOfString("USER_NAME", withString: username)
+        return hostUrls[currentUrlIndex].replacingOccurrences(of: "USER_NAME", with: username)
     }
     
     func setImageTo(iconView: NSImageView, username: String) {
-        let iconUrlStr = self.getUrl(username)
-        if let iconUrl = NSURL(string: iconUrlStr) {
-            iconView.kf_setImageWithURL(iconUrl,
-                                        placeholderImage: nil,
-                                        optionsInfo: nil,
-                                        progressBlock: nil)
-            { result in
-                if let _ = result.error {
+        let iconUrlStr = self.getUrl(username: username)
+        if let iconUrl = URL(string: iconUrlStr) {
+            iconView.kf.setImage(with: iconUrl,
+                                 placeholder: nil,
+                                 options: nil,
+                                 progressBlock: nil)
+            { img, err, cacheType, url in
+                if let _ = err {
                     if self.changeUrl() {
-                        self.setImageTo(iconView, username: username)
+                        self.setImageTo(iconView: iconView, username: username)
                     }
                 }
             }
@@ -49,7 +49,7 @@ class TwitterIconUrlHosts {
             // url is invalid
         else {
             if self.changeUrl() {
-                self.setImageTo(iconView, username: username)
+                self.setImageTo(iconView: iconView, username: username)
             }
         }
     }
